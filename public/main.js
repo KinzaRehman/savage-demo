@@ -1,5 +1,6 @@
 var thumbUp = document.getElementsByClassName("fa-thumbs-up");
 var trash = document.getElementsByClassName("fa-trash");
+var thumbDowm = document.getElementsByClassName("fa-thumbs-down");
 
 Array.from(thumbUp).forEach(function(element) {
       element.addEventListener('click', function(){
@@ -40,7 +41,7 @@ Array.from(thumbDown).forEach(function(element) {
           body: JSON.stringify({
             'name': name,
             'msg': msg,
-            'thumbUp':thumbDown
+            'thumbDown':thumbDown
           })
         })
         .then(response => {

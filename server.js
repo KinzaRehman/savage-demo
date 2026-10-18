@@ -57,11 +57,11 @@ app.put('/messages/down', (req, res) => {
   db.collection('messages')
   .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
     $set: {
-      thumbDown:req.body.thumbDown + 1
+      thumbDown:Number(req.body.thumbDown) + 1
     }
   }, {
     sort: {_id: -1},
-    upsert: true
+    upsert: false
   }, (err, result) => {
     if (err) return res.send(err)
     res.send(result)
