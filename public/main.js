@@ -29,18 +29,18 @@ Array.from(thumbUp).forEach(function(element) {
 
 //copy array thump up and change it to thumb down :
 
-Array.from(thumbUp).forEach(function(element) {
+Array.from(thumbDown).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
         const msg = this.parentNode.parentNode.childNodes[3].innerText
-        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
-        fetch('messages', {
+        const thumbDown = parseFloat(this.parentNode.parentNode.childNodes[9].innerText)
+        fetch('messages/down', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             'name': name,
             'msg': msg,
-            'thumbUp':thumbUp
+            'thumbUp':thumbDown
           })
         })
         .then(response => {
